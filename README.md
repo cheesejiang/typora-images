@@ -263,10 +263,10 @@ finally {
 }
 ```
 
-如果返回 GitHub 用户信息，说明 Token 有效。
-
-如果返回 `401`，说明 Token 无效、过期、撤销，或者读取的 Token 不正确。
-
-注意：不要使用 `Write-Host $token` 或把 Token 输出、截图发给我。
-
-你先执行第 1、2、3 步，把结果告诉我，我们再判断是否需要重新保存 Token。
+Invoke-RestMethod : 远程服务器返回错误: (401) 未经授权。
+所在位置 行:14 字符: 5
++     Invoke-RestMethod -Uri "https://api.github.com/user" -Headers $he ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod]，WebExce
+    ption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
