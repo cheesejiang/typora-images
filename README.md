@@ -94,7 +94,7 @@ Read-Host "请输入 GitHub Token" -AsSecureString |
 ```
 
 粘贴刚刚生成的 Token。
-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
+
 这个方式使用 Windows 当前账户的 DPAPI 保护 Token，其他 Windows 用户通常无法解密。
 
 ## 五、先单独测试上传
@@ -197,80 +197,3 @@ Typora 已配置自定义命令
 Typora 粘贴截图后自动上传成功
 
 无痕浏览器可以打开图片链接
-
-
-可以。在第二台 Windows 电脑上打开 PowerShell，按下面步骤检查。
-
-### 1. 检查 Token 文件是否存在
-
-```
-$tokenFile = Join-Path $env:APPDATA "TyporaGitHub\token.txt"
-
-Test-Path $tokenFile
-```
-
-如果返回：
-
-- `True`：文件存在。
-- `False`：文件不存在，需要重新保存 Token。
-
-### 2. 检查文件是否为空
-
-```
-Get-Item $tokenFile | Select-Object FullName, Length
-```
-
-`Length` 应该大于 0。
-
-### 3. 检查能否正常解密
-
-执行：
-
-```
-try {
-    $secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
-    Write-Host "Token 文件可以正常解密"
-} catch {
-    Write-Host "Token 文件解密失败：$($_.Exception.Message)"
-}
-```
-
-如果显示解密成功，说明 DPAPI 加密文件可以在当前电脑解密。
-
-### 4. 检查 Token 是否真的有效
-
-可以直接在 PowerShell 中测试 GitHub API，不会修改仓库：
-
-```
-$secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
-
-$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-
-try {
-    $token = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
-
-    $headers = @{
-        Authorization = "Bearer $token"
-        Accept = "application/vnd.github+json"
-        "User-Agent" = "Typora-Token-Test"
-    }
-
-    Invoke-RestMethod -Uri "https://api.github.com/user" -Headers $headers
-}
-finally {
-    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
-    $token = $null
-}
-```
-$tokenFile = Join-Path $env:APPDATA "TyporaGitHub\token.txt"
-$secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
-
-$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-
-try {
-    $token = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
-    Write-Host $token
-}
-finally {
-    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
-}
