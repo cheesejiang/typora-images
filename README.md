@@ -262,11 +262,15 @@ finally {
     $token = $null
 }
 ```
+$tokenFile = Join-Path $env:APPDATA "TyporaGitHub\token.txt"
+$secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
 
-Invoke-RestMethod : 远程服务器返回错误: (401) 未经授权。
-所在位置 行:14 字符: 5
-+     Invoke-RestMethod -Uri "https://api.github.com/user" -Headers $he ...
-+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod]，WebExce
-    ption
-    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
+$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
+
+try {
+    $token = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
+    Write-Host $token
+}
+finally {
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
+}
