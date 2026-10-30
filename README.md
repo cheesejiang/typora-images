@@ -197,3 +197,76 @@ Typora 已配置自定义命令
 Typora 粘贴截图后自动上传成功
 
 无痕浏览器可以打开图片链接
+
+
+可以。在第二台 Windows 电脑上打开 PowerShell，按下面步骤检查。
+
+### 1. 检查 Token 文件是否存在
+
+```
+$tokenFile = Join-Path $env:APPDATA "TyporaGitHub\token.txt"
+
+Test-Path $tokenFile
+```
+
+如果返回：
+
+- `True`：文件存在。
+- `False`：文件不存在，需要重新保存 Token。
+
+### 2. 检查文件是否为空
+
+```
+Get-Item $tokenFile | Select-Object FullName, Length
+```
+
+`Length` 应该大于 0。
+
+### 3. 检查能否正常解密
+
+执行：
+
+```
+try {
+    $secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
+    Write-Host "Token 文件可以正常解密"
+} catch {
+    Write-Host "Token 文件解密失败：$($_.Exception.Message)"
+}
+```
+
+如果显示解密成功，说明 DPAPI 加密文件可以在当前电脑解密。
+
+### 4. 检查 Token 是否真的有效
+
+可以直接在 PowerShell 中测试 GitHub API，不会修改仓库：
+
+```
+$secure = Get-Content $tokenFile -Raw | ConvertTo-SecureString
+
+$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
+
+try {
+    $token = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
+
+    $headers = @{
+        Authorization = "Bearer $token"
+        Accept = "application/vnd.github+json"
+        "User-Agent" = "Typora-Token-Test"
+    }
+
+    Invoke-RestMethod -Uri "https://api.github.com/user" -Headers $headers
+}
+finally {
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
+    $token = $null
+}
+```
+
+如果返回 GitHub 用户信息，说明 Token 有效。
+
+如果返回 `401`，说明 Token 无效、过期、撤销，或者读取的 Token 不正确。
+
+注意：不要使用 `Write-Host $token` 或把 Token 输出、截图发给我。
+
+你先执行第 1、2、3 步，把结果告诉我，我们再判断是否需要重新保存 Token。
