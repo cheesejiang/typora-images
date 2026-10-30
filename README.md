@@ -94,7 +94,7 @@ Read-Host "请输入 GitHub Token" -AsSecureString |
 ```
 
 粘贴刚刚生成的 Token。
-
+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
 这个方式使用 Windows 当前账户的 DPAPI 保护 Token，其他 Windows 用户通常无法解密。
 
 ## 五、先单独测试上传
