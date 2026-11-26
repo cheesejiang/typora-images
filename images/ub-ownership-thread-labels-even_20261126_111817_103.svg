@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1510" height="905" viewBox="0 0 1510 905"><g font-family="Microsoft YaHei, Arial, sans-serif">
+<rect x="0" y="0" width="1510" height="905" fill="white" stroke="none" stroke-width="1"/>
+<rect x="18" y="18" width="1474" height="869" fill="none" stroke="#172A44" stroke-width="2"/>
+<text x="48" y="71" font-size="39" fill="#326B9B" text-anchor="start" font-weight="700">连续分组宽度 w 如何改变线程分配</text>
+<text x="49" y="110" font-size="22" fill="#172A44" text-anchor="start" font-weight="400">32 × 32 逻辑循环域    _i = c × 32 + r    ·    连续指 _i 连续，UB 地址由存储布局决定。</text>
+<text x="49" y="146" font-size="23" fill="#1E5079" text-anchor="start" font-weight="700">thread = (_i // w) % 32     index = (_i // (32w)) × w + _i % w</text>
+<rect x="48" y="174" width="692" height="650" fill="white" stroke="#9BBAD2" stroke-width="1"/>
+<rect x="48" y="174" width="692" height="51" fill="#326B9B" stroke="none" stroke-width="1"/>
+<text x="68" y="207" font-size="25" fill="white" text-anchor="start" font-weight="700">w = 1  ·  Baseline：每线程一行</text>
+<text x="68" y="253" font-size="22" fill="#1E5079" text-anchor="start" font-weight="700">thread = r;    index = c</text>
+<text x="677" y="276" font-size="18" fill="#326B9B" text-anchor="start" font-weight="400">c →</text>
+<text x="132" y="307" font-size="18" fill="#326B9B" text-anchor="start" font-weight="400">r ↓</text>
+<rect x="185" y="283" width="480" height="15" fill="#508FC2" stroke="none" stroke-width="1"/>
+<rect x="185" y="298" width="480" height="15" fill="#67BDAA" stroke="none" stroke-width="1"/>
+<rect x="185" y="313" width="480" height="15" fill="#F4BC75" stroke="none" stroke-width="1"/>
+<rect x="185" y="328" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="343" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="358" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="373" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="388" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="403" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="418" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="433" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="448" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="463" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="478" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="493" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="508" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="523" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="538" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="553" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="568" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="583" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="598" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="613" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="628" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="643" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="658" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="673" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="688" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="185" y="703" width="480" height="15" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="185" y="718" width="480" height="15" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="185" y="733" width="480" height="15" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="185" y="748" width="480" height="15" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<path d="M 185 283 L 185 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 283 L 665 283" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 200 283 L 200 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 298 L 665 298" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 215 283 L 215 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 313 L 665 313" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 230 283 L 230 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 328 L 665 328" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 245 283 L 245 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 343 L 665 343" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 260 283 L 260 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 358 L 665 358" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 275 283 L 275 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 373 L 665 373" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 290 283 L 290 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 388 L 665 388" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 305 283 L 305 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 403 L 665 403" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 320 283 L 320 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 418 L 665 418" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 335 283 L 335 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 433 L 665 433" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 350 283 L 350 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 448 L 665 448" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 365 283 L 365 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 463 L 665 463" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 380 283 L 380 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 478 L 665 478" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 395 283 L 395 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 493 L 665 493" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 410 283 L 410 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 508 L 665 508" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 425 283 L 425 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 523 L 665 523" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 440 283 L 440 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 538 L 665 538" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 455 283 L 455 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 553 L 665 553" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 470 283 L 470 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 568 L 665 568" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 485 283 L 485 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 583 L 665 583" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 500 283 L 500 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 598 L 665 598" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 515 283 L 515 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 613 L 665 613" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 530 283 L 530 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 628 L 665 628" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 545 283 L 545 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 643 L 665 643" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 560 283 L 560 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 658 L 665 658" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 575 283 L 575 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 673 L 665 673" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 590 283 L 590 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 688 L 665 688" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 605 283 L 605 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 703 L 665 703" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 620 283 L 620 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 718 L 665 718" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 635 283 L 635 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 733 L 665 733" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 650 283 L 650 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 748 L 665 748" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 665 283 L 665 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 185 763 L 665 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<rect x="185" y="283" width="480" height="15" fill="none" stroke="#1E5079" stroke-width="2"/>
+<text x="192.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">0</text>
+<text x="176" y="295" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">0</text>
+<text x="207.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">1</text>
+<text x="176" y="310" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">1</text>
+<text x="252.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">4</text>
+<text x="176" y="355" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">4</text>
+<text x="312.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">8</text>
+<text x="176" y="415" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">8</text>
+<text x="372.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">12</text>
+<text x="176" y="475" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">12</text>
+<text x="432.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">16</text>
+<text x="176" y="535" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">16</text>
+<text x="492.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">20</text>
+<text x="176" y="595" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">20</text>
+<text x="552.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">24</text>
+<text x="176" y="655" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">24</text>
+<text x="612.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">28</text>
+<text x="176" y="715" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">28</text>
+<text x="657.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">31</text>
+<text x="176" y="760" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">31</text>
+<text x="68" y="812" font-size="19" fill="#1E5079" text-anchor="start" font-weight="700">T0、T1、T2 分别固定 r = 0、1、2，沿 c 遍历。</text>
+<rect x="770" y="174" width="692" height="650" fill="white" stroke="#9BBAD2" stroke-width="1"/>
+<rect x="770" y="174" width="692" height="51" fill="#326B9B" stroke="none" stroke-width="1"/>
+<text x="790" y="207" font-size="25" fill="white" text-anchor="start" font-weight="700">w = 32  ·  Ownership：每线程一列</text>
+<text x="790" y="253" font-size="22" fill="#1E5079" text-anchor="start" font-weight="700">thread = c;    index = r</text>
+<text x="1399" y="276" font-size="18" fill="#326B9B" text-anchor="start" font-weight="400">c →</text>
+<text x="854" y="307" font-size="18" fill="#326B9B" text-anchor="start" font-weight="400">r ↓</text>
+<rect x="907" y="283" width="15" height="480" fill="#508FC2" stroke="none" stroke-width="1"/>
+<rect x="922" y="283" width="15" height="480" fill="#67BDAA" stroke="none" stroke-width="1"/>
+<rect x="937" y="283" width="15" height="480" fill="#F4BC75" stroke="none" stroke-width="1"/>
+<rect x="952" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="967" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="982" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="997" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1012" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1027" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1042" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1057" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1072" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1087" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1102" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1117" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1132" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1147" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1162" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1177" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1192" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1207" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1222" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1237" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1252" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1267" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1282" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1297" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1312" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<rect x="1327" y="283" width="15" height="480" fill="#D7EAF8" stroke="none" stroke-width="1"/>
+<rect x="1342" y="283" width="15" height="480" fill="#ECF5FB" stroke="none" stroke-width="1"/>
+<rect x="1357" y="283" width="15" height="480" fill="#C9E2F4" stroke="none" stroke-width="1"/>
+<rect x="1372" y="283" width="15" height="480" fill="#E3F0FA" stroke="none" stroke-width="1"/>
+<path d="M 907 283 L 907 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 283 L 1387 283" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 922 283 L 922 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 298 L 1387 298" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 937 283 L 937 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 313 L 1387 313" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 952 283 L 952 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 328 L 1387 328" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 967 283 L 967 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 343 L 1387 343" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 982 283 L 982 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 358 L 1387 358" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 997 283 L 997 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 373 L 1387 373" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1012 283 L 1012 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 388 L 1387 388" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1027 283 L 1027 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 403 L 1387 403" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1042 283 L 1042 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 418 L 1387 418" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1057 283 L 1057 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 433 L 1387 433" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1072 283 L 1072 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 448 L 1387 448" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1087 283 L 1087 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 463 L 1387 463" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1102 283 L 1102 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 478 L 1387 478" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1117 283 L 1117 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 493 L 1387 493" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1132 283 L 1132 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 508 L 1387 508" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1147 283 L 1147 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 523 L 1387 523" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1162 283 L 1162 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 538 L 1387 538" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1177 283 L 1177 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 553 L 1387 553" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1192 283 L 1192 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 568 L 1387 568" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1207 283 L 1207 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 583 L 1387 583" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1222 283 L 1222 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 598 L 1387 598" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1237 283 L 1237 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 613 L 1387 613" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1252 283 L 1252 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 628 L 1387 628" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1267 283 L 1267 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 643 L 1387 643" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1282 283 L 1282 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 658 L 1387 658" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1297 283 L 1297 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 673 L 1387 673" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1312 283 L 1312 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 688 L 1387 688" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1327 283 L 1327 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 703 L 1387 703" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1342 283 L 1342 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 718 L 1387 718" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1357 283 L 1357 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 733 L 1387 733" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1372 283 L 1372 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 748 L 1387 748" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 1387 283 L 1387 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<path d="M 907 763 L 1387 763" stroke="#A7C6DF" stroke-width="0.65"/>
+<rect x="907" y="283" width="15" height="480" fill="none" stroke="#1E5079" stroke-width="2"/>
+<text x="914.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">0</text>
+<text x="898" y="295" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">0</text>
+<text x="929.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">1</text>
+<text x="898" y="310" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">1</text>
+<text x="974.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">4</text>
+<text x="898" y="355" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">4</text>
+<text x="1034.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">8</text>
+<text x="898" y="415" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">8</text>
+<text x="1094.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">12</text>
+<text x="898" y="475" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">12</text>
+<text x="1154.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">16</text>
+<text x="898" y="535" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">16</text>
+<text x="1214.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">20</text>
+<text x="898" y="595" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">20</text>
+<text x="1274.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">24</text>
+<text x="898" y="655" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">24</text>
+<text x="1334.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">28</text>
+<text x="898" y="715" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">28</text>
+<text x="1379.5" y="274" font-size="13" fill="#172A44" text-anchor="middle" font-weight="400">31</text>
+<text x="898" y="760" font-size="13" fill="#172A44" text-anchor="end" font-weight="400">31</text>
+<text x="790" y="812" font-size="19" fill="#1E5079" text-anchor="start" font-weight="700">T0、T1、T2 分别固定 c = 0、1、2，沿 r 遍历。</text>
+<rect x="49" y="844" width="21" height="21" fill="#508FC2" stroke="#1E5079"/><text x="79" y="862" font-size="20" font-weight="700" fill="#172A44">T0</text><rect x="157" y="844" width="21" height="21" fill="#67BDAA" stroke="#22786A"/><text x="187" y="862" font-size="20" font-weight="700" fill="#172A44">T1</text><rect x="265" y="844" width="21" height="21" fill="#F4BC75" stroke="#A96020"/><text x="295" y="862" font-size="20" font-weight="700" fill="#172A44">T2</text><text x="393" y="862" font-size="20" fill="#172A44">展平时先走完一列，再进入下一列，因此 _i = 0…31 对应 c = 0，r = 0…31。</text>
+<text x="197" y="294" font-size="12" font-weight="700" text-anchor="start" fill="white">T0</text><text transform="translate(914.5 751) rotate(-90)" x="0" y="4" font-size="12" font-weight="700" fill="white">T0</text>
+<text x="197" y="309" font-size="12" font-weight="700" text-anchor="start" fill="#172A44">T1</text><text transform="translate(929.5 751) rotate(-90)" x="0" y="4" font-size="12" font-weight="700" fill="#172A44">T1</text>
+<text x="197" y="324" font-size="12" font-weight="700" text-anchor="start" fill="#172A44">T2</text><text transform="translate(944.5 751) rotate(-90)" x="0" y="4" font-size="12" font-weight="700" fill="#172A44">T2</text>
+</g></svg>
